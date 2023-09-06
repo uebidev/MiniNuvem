@@ -1,0 +1,30 @@
+﻿<Window x:Class="ImageControl.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ImageControl"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="400" Width="500">
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="90"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <DockPanel Margin="0,0,-35,0">
+            <Grid Margin="10 10 0 0 " Width="250" >
+                <Button x:Name="btnBrowse" Margin="20,5,150,45" Content="Browse" Click="btnBrowse_Click"/>
+                <Button x:Name="btnLoadImage" Margin="115,5,55,45" Content="Load Image" Click="btnLoadImage_Click"/>
+            </Grid>
+            <Grid Width="250" Margin="10 10 0 0" HorizontalAlignment="Center">
+                <Button Name="btnFill"  Content="Fill" Margin="30,5,140,45" Click="btnFill_Click"/>
+                <Button Name="btnZoom" Width="80" Height="30"  Content="Zoom" Margin="125,5,45,45" Click="btnZoom_Click"/>
+            </Grid>
+        </DockPanel>
+        <TextBox Width="440" Name="txtPath" VerticalAlignment="Top" HorizontalAlignment="Center" Height="30" Margin="0,50,0,0"/>
+        <StackPanel Grid.Row="1" Width="auto" Margin="10,10,10,0" >
+            <Image  Name="imgImagem"   Stretch="UniformToFill" />
+        </StackPanel>
+
+    </Grid>
+</Window>

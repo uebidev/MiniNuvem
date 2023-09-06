@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33829.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BidingDfilitio", "BidingDfilitio\BidingDfilitio.csproj", "{B7920DE4-42F0-41A1-92B2-7A71B2F9BEDC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B7920DE4-42F0-41A1-92B2-7A71B2F9BEDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7920DE4-42F0-41A1-92B2-7A71B2F9BEDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7920DE4-42F0-41A1-92B2-7A71B2F9BEDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7920DE4-42F0-41A1-92B2-7A71B2F9BEDC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {721515EB-6A01-41C7-B947-262CEFF89C4D}
+	EndGlobalSection
+EndGlobal

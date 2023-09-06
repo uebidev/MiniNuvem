@@ -1,0 +1,29 @@
+﻿<Window x:Class="DummyApi.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <TextBox HorizontalAlignment="Left" Height="33" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="610" x:Name="TxtPesquisa"/>
+        <Button Content="Pesquisar" HorizontalAlignment="Left" Height="33" Margin="625,10,0,0" VerticalAlignment="Top" Width="142" x:Name="BtnGet" Click="BtnGet_Click" />
+        <Grid x:Name="pnlGrid" HorizontalAlignment="Left" Height="auto" Margin="10,66,0,0" VerticalAlignment="Top" Width="auto">
+            <DataGrid Name="ProductsListView" HorizontalAlignment="Center" VerticalAlignment="Center" AutoGenerateColumns="False" RenderTransformOrigin="0.912,0.595" Width="610">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID" Width="90" Binding="{Binding IId}" />
+                    <DataGridTextColumn Header="NOME" Width="200" Binding="{Binding ITitle}" />
+                    <DataGridTextColumn Header="PRECO" Width="100" Binding="{Binding IPrice,StringFormat=N2,ConverterCulture=pt-BR}" />
+                </DataGrid.Columns>
+            </DataGrid>
+            <!--<DataGrid AutoGenerateColumns="True" x:Name="DgUsers">
+                
+            </DataGrid>-->
+        </Grid>
+
+
+        <Button Content="Add Product" HorizontalAlignment="Left" Height="33" Margin="625,45,0,0" VerticalAlignment="Top" Width="142" x:Name="postProduct_Copy" Click="btnPostProduct_Click" />
+        <Button Content="Update Product" HorizontalAlignment="Left" Height="33" Margin="625,80,0,0" VerticalAlignment="Top" Width="142" x:Name="Update" Click="Update_Click" ></Button>
+        <Button Content="Delete Product" x:Name="Delete" Click="Delete_Click" Margin="625,120,33,246" />
+    </Grid>
+</Window>

@@ -1,0 +1,174 @@
+﻿<Window x:Class="DummyAppV2.MainWindow"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            xmlns:local="clr-namespace:DummyAppV2" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+            DataContext="{Binding RelativeSource={RelativeSource Self}}"
+       Height="800" KeyDown="KeydownEnter" MouseRightButtonDown="Window_MouseRightButtonDown" WindowState="Maximized"  Width="800" WindowStyle="SingleBorderWindow" WindowStartupLocation="CenterScreen" 
+ 
+        ShowInTaskbar="True" >
+
+    <Window.Resources>
+        <Style TargetType="DataGridRow">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Path=IsModified}" Value="True">
+                    <Setter Property="Foreground" Value="DarkOrange" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Path=IsAdd}" Value="True">
+                    <Setter Property="Foreground" Value="Green"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Grid ShowGridLines="True">
+        <Grid Margin="0,0,0,0">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="340*"/>
+                <ColumnDefinition Width="254*"/>
+                <ColumnDefinition Width="199*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="80"/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition Height="20"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock
+                        Grid.ColumnSpan="2"
+                        x:Name="txbTitleMain"
+                        Text="Ultimate Product Manager"
+                        Foreground="Black"
+                        FontSize="30"
+                        FontWeight="Thin"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center" 
+                        Grid.Column="1"
+                        Margin="215,1,0,0"
+                        Height="40" 
+                        Width="335"/>
+            <TextBox x:Name="TxtPesquisa"
+                  
+                              materialDesign:HintAssist.Hint="Nome do Produto"
+                              Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                              Grid.Column="1" Grid.Row="1" Foreground="Black" Background="Transparent" 
+                              BorderBrush="#006992" Margin="10,0,0,0" Height="50" FontSize="19"  VerticalAlignment="Top"/>    
+            <DataGrid  
+                materialDesign:DataGridAssist.CellPadding="4 2 2 2"
+                              materialDesign:DataGridAssist.ColumnHeaderPadding="4 2 2 2"       
+      
+                              Grid.Row="2"
+                              Grid.Column="1"
+                              Grid.RowSpan="3"
+                              Grid.ColumnSpan="3"
+                              x:Name="ProductsListView"  
+                              AutoGenerateColumns="False"   
+                              FontSize="15"
+                              SelectedItem="{Binding Product}"
+                              CanUserAddRows="False"
+                              Foreground="WhiteSmoke"
+                              CanUserResizeColumns="True"
+                              CanUserResizeRows="False"
+                              CanUserSortColumns="True"
+                              RowBackground="Transparent"
+                              HeadersVisibility="Column"
+                              GridLinesVisibility="Horizontal"
+                              Margin="10,20,10,0" Background="#FF21222C">
+                <DataGrid.Columns  >
+                    <DataGridTextColumn Header="ID"   IsReadOnly="True" Width="Auto" x:Name="txtId" Binding="{Binding Id}" />
+                    <DataGridTextColumn Header="Title"  IsReadOnly="True"  Width="Auto"   Binding="{Binding Title}" />
+                    <DataGridTextColumn Header="Price"  Width="100"  IsReadOnly="True" Binding="{Binding Price, StringFormat=N2}"  />
+                    <DataGridTextColumn Header="Description"  IsReadOnly="True"  Width="Auto"   Binding="{Binding Description}" />
+
+                </DataGrid.Columns>
+
+            </DataGrid>
+            <ComboBox  Text="Escolha"  Grid.Column="2" Grid.ColumnSpan="2" SelectedIndex="0" IsEditable="True"  Name="cbxTeste" HorizontalAlignment="Left" Height="40" Margin="350,16,0,0" Grid.Row="1" VerticalAlignment="Top" Width="111">
+                <ComboBoxItem x:Name="cbxProdutos"  Content="Produtos"/>
+                <ComboBoxItem x:Name="cbxClientes" Content="Clientes"/>
+            </ComboBox>
+        </Grid>
+
+        <Grid 
+            Background="#90000000"  x:Name="EditOverlay" Visibility="Hidden"  >
+            <Border Width="400" Height="600" Background="Gray" CornerRadius="30">
+
+                <StackPanel  Name="pnlJanelinha" Visibility="Hidden" Orientation="Vertical" Background="Transparent" Width="370" Height="450">
+                    <Button
+                      
+                    Name="BtnFechar"
+                          
+                    Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+
+                    Content="X"
+                    Background="Red"
+                    BorderBrush="Red"
+                    Height="35"
+                    ToolTip="Fechar"
+                    Width="35"
+                    FontSize="12"
+                    Foreground="White"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Margin="0,-65,-5,0"
+                    Click="BtnFechar_Click"
+                            />
+                    <Button
+                       
+                      Name="BtnSalvar"
+                      Width="250"
+                      Foreground="White"
+                      Background="Green"
+                        BorderBrush="Transparent"
+                      Content="Save"
+                      IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                      Style="{StaticResource MaterialDesignRaisedLightButton}"
+                      ToolTip="Resource name: MaterialDesignRaisedLightButton"
+                            Margin="0,0,0,-900"
+                            
+                Click="BtnSalvar_Click"/>
+
+                    <TextBlock Text="Editar Produto" FontSize="25" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center" Foreground="WhiteSmoke" Name="lblEditar" Visibility="Hidden" />
+                    <TextBlock Text="Adicionar Produto" FontSize="25" FontWeight="Bold"  HorizontalAlignment="Center" VerticalAlignment="Top"  Foreground="WhiteSmoke" Name="lblAdd" Visibility="Hidden"/>
+                    <TextBlock Text="Nome" Margin="0,60,105,0" FontSize="18" HorizontalAlignment="Center"  VerticalAlignment="Center" Foreground="WhiteSmoke" />
+                    <TextBox x:Name="txtTitle" FontSize="18" Text="{Binding ProductEdit.Title, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  Foreground="WhiteSmoke" Margin="10" Width="150"/>
+                    <TextBlock Text="Preço" Margin="0,60,105,0" FontSize="18"  Foreground="WhiteSmoke" HorizontalAlignment="Center" />
+                    <TextBox x:Name="TxtPreco" FontSize="18" Text="{Binding ProductEdit.Price, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  Foreground="WhiteSmoke" Margin="10" Width="150"/>
+
+
+                </StackPanel>
+            </Border>
+        </Grid>
+        <Button Content="Pesquisar"   Foreground="White" ToolTip="Pesquisar produtos" Background="MidnightBlue" 
+                x:Name="BtnGet" VerticalAlignment="Top" HorizontalAlignment="Center" Click="BtnGet_Click" Margin="0,70,0,0" Width="100"/>
+        <Button             
+            Margin="0,0,15,15"
+            VerticalAlignment="Bottom"
+            HorizontalAlignment="Right"                 
+            Click="BtnAdicionarJanela_Click"
+            Background="Green"
+            BorderBrush="DarkGreen"
+            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+            Style="{StaticResource MaterialDesignFloatingActionDarkButton}"
+            ToolTip="Adicionar Produto">
+            <materialDesign:PackIcon
+            Width="15"
+            Height="16"
+            Kind="Add" 
+    
+            />
+        </Button>
+        <Grid HorizontalAlignment="Right" VerticalAlignment="Top" Margin="70">
+            <Button Content="Imprimir" Width="90" Height="30" Foreground="White"  Background="Green" x:Name="btnImprimir" Click="btnImprimir_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,100,0"/>
+            <Button Content="Excel" Width="90" Height="30" Foreground="White"  Background="Green" x:Name="btnExportExcel" Click="btnExportExcel_Click" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,0,0"/>
+        </Grid>
+    </Grid>
+</Window>

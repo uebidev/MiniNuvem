@@ -1,0 +1,35 @@
+﻿<Window x:Class="DummyApi.AddProduct"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Add Product" Height="400" Width="500" WindowStyle="ToolWindow" WindowStartupLocation="CenterScreen">
+    <Grid Margin="3">
+        <StackPanel Orientation=" Vertical">
+            <TextBlock Text="Id"/>
+            <TextBox x:Name="txtId" Text="{Binding IId, Mode=TwoWay}"/>
+            <TextBlock Text="Nome"/>
+            <TextBox x:Name="TxtTitle" Text="{Binding ITitle,Mode=TwoWay}"/>
+            <TextBlock Text="TxtPreco"/>
+            <TextBox x:Name="TxtPrice" Text="{Binding IPrice}"/>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="5*"/>
+                </Grid.ColumnDefinitions>
+                <Button Name="OKButton"
+                        Grid.Column="0"
+                        Content="OK"
+                        Margin="3"
+                        IsDefault="True"
+                        Click="AddProductButton_Click"/>
+                <Button Grid.Column="1"
+                        Content="Cancelar"
+                        Margin="3"
+                        IsCancel="True"/>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Window>

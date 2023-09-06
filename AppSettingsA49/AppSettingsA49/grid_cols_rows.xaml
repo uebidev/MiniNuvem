@@ -1,0 +1,84 @@
+﻿<Window x:Class="AppSettingsA49.grid_cols_rows"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AppSettingsA49"
+        mc:Ignorable="d"
+        Title="grid_cols_rows" Height="520" Width="455">
+    <Grid Background="Transparent"  >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="123"/>
+            <ColumnDefinition Width="295"/>
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="34"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="0"/>
+        </Grid.RowDefinitions>
+        <TabControl Grid.ColumnSpan="2" Grid.RowSpan="11" Grid.Column="0">
+            <TabItem Header="Application Settings" Width="120"  >
+                <StackPanel  Margin="0,0,0,0" Height="400" >
+                    <Grid VerticalAlignment="Top" Height="30" HorizontalAlignment="Left" Margin="0 8 0 0" Grid.Row="0">
+                        <Label Content="company"/>
+                        <TextBox  Width="200" Height="30" Margin="120 0 0 0"/>
+                    </Grid>
+                    <Grid VerticalAlignment="Top" Height="30" HorizontalAlignment="Left" Margin="0 3 0 0" Grid.Row="1" >
+                        <Label Content="Title"  />
+                        <TextBox  Width="200"  Margin="120 0 0 0"/>
+                    </Grid>
+                    <Grid VerticalAlignment="Top" Height="30" HorizontalAlignment="Left" Margin="0 3 0 0" Grid.Row="2" >
+                        <Label Content="Advertising"/>
+                        <TextBox  Width="200"  Margin="120 0 0 0"/>
+                    </Grid>
+                    <Grid VerticalAlignment="Top" Height="30" HorizontalAlignment="Left" Margin="0 3 0 0" Grid.Row="3" >
+                        <Label Content="Tel"/>
+                        <TextBox  Width="200" Margin="120 0 0 0"/>
+                    </Grid>
+                    <Grid VerticalAlignment="top" Height="30" HorizontalAlignment="Left" Margin="0 3 0 0" Grid.Row="4">
+                        <Label Content="Mobile"/>
+                        <TextBox  Width="200"  Margin="120 0 0 0"/>
+                    </Grid>
+                    <Grid VerticalAlignment="Top" Height="30" HorizontalAlignment="Left" Margin="0 3 0 0" Grid.Row="5">
+                        <Label Content="Fax"/>
+                        <TextBox  Width="200" Margin="120 0 0 0"/>
+                    </Grid>
+                    <Grid VerticalAlignment="top" Height="30" HorizontalAlignment="Left" Margin="0 3 0 0" Grid.Row="6" >
+                        <Label Content="Activity"/>
+                        <TextBox  Width="200"  Margin="120 0 0 0"/>
+                    </Grid>
+                    <Grid VerticalAlignment="top" Height="30" HorizontalAlignment="Left" Margin="0 3 0 0" Grid.Row="7">
+                        <Label Content="Address"/>
+                        <TextBox  Width="200"  Margin="120 0 0 0"/>
+                    </Grid>
+                    <Grid VerticalAlignment="top" Height="30" HorizontalAlignment="Left" Margin="0 3 0 0" Grid.Row="8" >
+                        <Label Content="Email"/>
+                        <TextBox  Width="200"  Margin="120 0 0 0"/>
+                    </Grid>
+                    <Grid VerticalAlignment="top" Height="30" HorizontalAlignment="Left" Margin="0 3 0 0" Grid.Row="9">
+                        <Label Content="WebSite"/>
+                        <TextBox  Width="200"  Margin="120 0 0 0"/>
+                    </Grid>
+                    <Grid VerticalAlignment="top" Height="30" HorizontalAlignment="Left" Margin="0 3 0 0" Grid.Row="10">
+                        <Label Content="Language"/>
+                        <TextBox  Width="200"  Margin="120 0 0 0"/>
+                    </Grid>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Logo">
+                <Image Source="C:\Users\uebid\Downloads\imgEarth.png"/>
+
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

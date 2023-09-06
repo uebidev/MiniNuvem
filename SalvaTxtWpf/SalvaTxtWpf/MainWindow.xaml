@@ -1,0 +1,25 @@
+﻿<Window x:Class="SalvaTxtWpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SalvaTxtWpf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="400" Width="350">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="9"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="48"/>
+        </Grid.RowDefinitions>
+        <Grid HorizontalAlignment="Center" Width="280" Grid.Row="1" Margin="0,7,0,8">
+            <Button Content="Save in Text" VerticalAlignment="Top" HorizontalAlignment="Left" Height="20" Click="BtnSaveInText_Click"/>
+            <Button Content="Load From Text" VerticalAlignment="Top" HorizontalAlignment="Left" Height="20" Margin="89,0,0,0" Width="85" Click="BtnLoadFromText_Click" />
+            <Button Content="Add new(Clear)" VerticalAlignment="Top" HorizontalAlignment="Right" Height="20" Click="BtnAddClear_Click"/>
+            <Button Content="Save As" Width="70" Margin="0,40,0,0" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Click="BtnSaveAs_Click"/>
+        </Grid>
+        <StackPanel Grid.Row="2" Width="350" Height="290" VerticalAlignment="Bottom" Margin="0,0,0,-242" >
+            <TextBox  Name="txtTexto" FontSize="15" FontWeight="DemiBold" Width="280" Height="265" Margin="0,0,0,4" TextWrapping="Wrap" />
+        </StackPanel>
+    </Grid>
+</Window>
